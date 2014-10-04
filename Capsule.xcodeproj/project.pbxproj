@@ -21,6 +21,8 @@
 		019587F719E05C1400C41438 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 019587D919E05C1300C41438 /* UIKit.framework */; };
 		019587FF19E05C1400C41438 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 019587FD19E05C1400C41438 /* InfoPlist.strings */; };
 		0195880119E05C1400C41438 /* CapsuleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0195880019E05C1400C41438 /* CapsuleTests.m */; };
+		20E012AF19E06B5F0046E1AA /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E012AE19E06B5F0046E1AA /* HomeViewController.m */; };
+		20E012B219E06BA70046E1AA /* CapsuleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E012B119E06BA70046E1AA /* CapsuleCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,10 @@
 		019587FC19E05C1400C41438 /* CapsuleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CapsuleTests-Info.plist"; sourceTree = "<group>"; };
 		019587FE19E05C1400C41438 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0195880019E05C1400C41438 /* CapsuleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CapsuleTests.m; sourceTree = "<group>"; };
+		20E012AD19E06B5F0046E1AA /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		20E012AE19E06B5F0046E1AA /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		20E012B019E06BA70046E1AA /* CapsuleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapsuleCell.h; sourceTree = "<group>"; };
+		20E012B119E06BA70046E1AA /* CapsuleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CapsuleCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +125,10 @@
 				019587EB19E05C1300C41438 /* ViewController.m */,
 				019587ED19E05C1400C41438 /* Images.xcassets */,
 				019587DC19E05C1300C41438 /* Supporting Files */,
+				20E012AD19E06B5F0046E1AA /* HomeViewController.h */,
+				20E012AE19E06B5F0046E1AA /* HomeViewController.m */,
+				20E012B019E06BA70046E1AA /* CapsuleCell.h */,
+				20E012B119E06BA70046E1AA /* CapsuleCell.m */,
 			);
 			path = Capsule;
 			sourceTree = "<group>";
@@ -249,9 +259,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20E012B219E06BA70046E1AA /* CapsuleCell.m in Sources */,
 				019587EC19E05C1300C41438 /* ViewController.m in Sources */,
 				019587E619E05C1300C41438 /* AppDelegate.m in Sources */,
 				019587E219E05C1300C41438 /* main.m in Sources */,
+				20E012AF19E06B5F0046E1AA /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +468,7 @@
 				0195880619E05C1400C41438 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0195880719E05C1400C41438 /* Build configuration list for PBXNativeTarget "CapsuleTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +477,7 @@
 				0195880919E05C1400C41438 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
