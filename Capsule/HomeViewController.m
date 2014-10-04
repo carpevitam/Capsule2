@@ -7,6 +7,9 @@
 //
 
 #import "HomeViewController.h"
+#import <Parse/Parse.h>
+#import <ParseFacebookUtils/PFFacebookUtils.h>
+#import "ViewController.h"
 
 @interface HomeViewController ()
 
@@ -27,12 +30,34 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if ([PFUser currentUser])
+        NSLog(@"%@",[PFUser currentUser]);
+    else{
+        //self.modalTransitionStyle =
+//UIViewController *login = [[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
+        //ViewController *login = [[ViewController alloc]init];
+        //login.delegate = self;
+        ViewController *login = [self.storyboard instantiateViewControllerWithIdentifier:@"logIn"];
+        [self presentViewController:login animated:YES completion:^{ }];
+        //ViewController2 *myVC2 = [[ViewController2 alloc] initWithNibName:@"ViewController2" bundle:nil];
+
+    }
+    
+        NSLog(@"Login");
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction) logout{
+    [[PFFacebookUtils session]closeAndClearTokenInformation];
+    [PFUser logOut];
+    ViewController *login = [self.storyboard instantiateViewControllerWithIdentifier:@"logIn"];
+    [self presentViewController:login animated:YES completion:^{ }];
+    
 }
 
 /*

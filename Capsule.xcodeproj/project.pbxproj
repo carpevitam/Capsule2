@@ -35,6 +35,7 @@
 		01F24C3C19E062D00054DEE6 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F24C3B19E062D00054DEE6 /* Social.framework */; };
 		01F24C3E19E062D80054DEE6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F24C3D19E062D80054DEE6 /* StoreKit.framework */; };
 		01F24C4019E062DF0054DEE6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F24C3F19E062DF0054DEE6 /* SystemConfiguration.framework */; };
+		01FF4DCE19E0B20A00CF48CD /* FriendsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FF4DCD19E0B20A00CF48CD /* FriendsListViewController.m */; };
 		2079CE2419E092AE0052D8ED /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2079CE2319E092AE0052D8ED /* FacebookSDK.framework */; };
 		20E012AF19E06B5F0046E1AA /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E012AE19E06B5F0046E1AA /* HomeViewController.m */; };
 		20E012B219E06BA70046E1AA /* CapsuleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E012B119E06BA70046E1AA /* CapsuleCell.m */; };
@@ -84,6 +85,8 @@
 		01F24C3B19E062D00054DEE6 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		01F24C3D19E062D80054DEE6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		01F24C3F19E062DF0054DEE6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		01FF4DCC19E0B20A00CF48CD /* FriendsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsListViewController.h; sourceTree = "<group>"; };
+		01FF4DCD19E0B20A00CF48CD /* FriendsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsListViewController.m; sourceTree = "<group>"; };
 		2079CE2319E092AE0052D8ED /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		20E012AD19E06B5F0046E1AA /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		20E012AE19E06B5F0046E1AA /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
@@ -181,6 +184,8 @@
 				019587E419E05C1300C41438 /* AppDelegate.h */,
 				019587E519E05C1300C41438 /* AppDelegate.m */,
 				019587E719E05C1300C41438 /* Main.storyboard */,
+				01FF4DCC19E0B20A00CF48CD /* FriendsListViewController.h */,
+				01FF4DCD19E0B20A00CF48CD /* FriendsListViewController.m */,
 				019587EA19E05C1300C41438 /* ViewController.h */,
 				019587EB19E05C1300C41438 /* ViewController.m */,
 				019587ED19E05C1400C41438 /* Images.xcassets */,
@@ -319,6 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01FF4DCE19E0B20A00CF48CD /* FriendsListViewController.m in Sources */,
 				20E012B219E06BA70046E1AA /* CapsuleCell.m in Sources */,
 				019587EC19E05C1300C41438 /* ViewController.m in Sources */,
 				019587E619E05C1300C41438 /* AppDelegate.m in Sources */,
