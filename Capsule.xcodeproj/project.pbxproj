@@ -35,7 +35,9 @@
 		01F24C3C19E062D00054DEE6 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F24C3B19E062D00054DEE6 /* Social.framework */; };
 		01F24C3E19E062D80054DEE6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F24C3D19E062D80054DEE6 /* StoreKit.framework */; };
 		01F24C4019E062DF0054DEE6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F24C3F19E062DF0054DEE6 /* SystemConfiguration.framework */; };
-		01F24C4A19E086190054DEE6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F24C4919E086190054DEE6 /* FacebookSDK.framework */; };
+		01F24C4619E07E410054DEE6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F24C4519E07E410054DEE6 /* FacebookSDK.framework */; };
+		20E012AF19E06B5F0046E1AA /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E012AE19E06B5F0046E1AA /* HomeViewController.m */; };
+		20E012B219E06BA70046E1AA /* CapsuleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E012B119E06BA70046E1AA /* CapsuleCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,10 @@
 		01F24C3D19E062D80054DEE6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		01F24C3F19E062DF0054DEE6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		01F24C4919E086190054DEE6 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		20E012AD19E06B5F0046E1AA /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		20E012AE19E06B5F0046E1AA /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		20E012B019E06BA70046E1AA /* CapsuleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapsuleCell.h; sourceTree = "<group>"; };
+		20E012B119E06BA70046E1AA /* CapsuleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CapsuleCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +185,10 @@
 				019587EB19E05C1300C41438 /* ViewController.m */,
 				019587ED19E05C1400C41438 /* Images.xcassets */,
 				019587DC19E05C1300C41438 /* Supporting Files */,
+				20E012AD19E06B5F0046E1AA /* HomeViewController.h */,
+				20E012AE19E06B5F0046E1AA /* HomeViewController.m */,
+				20E012B019E06BA70046E1AA /* CapsuleCell.h */,
+				20E012B119E06BA70046E1AA /* CapsuleCell.m */,
 			);
 			path = Capsule;
 			sourceTree = "<group>";
@@ -309,9 +319,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20E012B219E06BA70046E1AA /* CapsuleCell.m in Sources */,
 				019587EC19E05C1300C41438 /* ViewController.m in Sources */,
 				019587E619E05C1300C41438 /* AppDelegate.m in Sources */,
 				019587E219E05C1300C41438 /* main.m in Sources */,
+				20E012AF19E06B5F0046E1AA /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
