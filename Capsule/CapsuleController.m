@@ -7,6 +7,8 @@
 //
 
 #import "CapsuleController.h"
+#import "Capsule.h"
+#import "CapsuleStore.h"
 
 @interface CapsuleController ()
 
@@ -40,7 +42,7 @@
     picker.delegate = self;
     [picker setSourceType:UIImagePickerControllerSourceTypeCamera];
     [self presentViewController:picker
-    animated:YES completion:NULL];
+                       animated:YES completion:NULL];
 }
 
 - (IBAction)choosePicture {
@@ -52,6 +54,8 @@
 
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    Capsule *capsuleInstance = [CapsuleStore sharedStore].currentCapsule;
+    [capsuleInstance saveImage:image];
     image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     [ImageView setImage:image];
     [self dismissViewControllerAnimated:YES completion:NULL];
@@ -61,14 +65,14 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
