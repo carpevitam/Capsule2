@@ -82,6 +82,7 @@
             self.capsuleList = [CapsuleStore sharedStore].capsuleList;
         }
         Capsule *c = self.capsuleList[index];
+        [CapsuleStore sharedStore].currentCapsule = c;
         [dest setTitle:c.capsuleName];
     }
 

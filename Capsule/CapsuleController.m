@@ -55,8 +55,8 @@
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     Capsule *capsuleInstance = [CapsuleStore sharedStore].currentCapsule;
-    [capsuleInstance saveImage:image];
     image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    [capsuleInstance saveImage:image];
     [ImageView setImage:image];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
