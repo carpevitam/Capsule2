@@ -111,20 +111,25 @@
     
     [moment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         NSLog(@"bool %d", succeeded);
+        if (!self.capsule[@"Moments"])
+            self.capsule[@"Moments"] = [[NSMutableArray alloc]init];
+        [self.capsule[@"Moments"] addObject:moment.objectId];
+        [self.capsule saveInBackground];
+        [self.moments addObject:moment];
     }];
-    [self.capsule[@"Moments"] addObject:moment.objectId];
-    [self.capsule saveInBackground];
-    [self.moments addObject:moment];
-
 }
 
 - (void) saveText:(NSString *)text {
     PFObject *moment = [PFObject objectWithClassName:@"Moment"];
     moment[@"Type"] = @"Text";
     moment[@"Text"] = text;
-    [moment saveInBackground];
-    [self.capsule[@"Moments"] addObject:moment.objectId];
-    [self.moments addObject:moment];
+    [moment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!self.capsule[@"Moments"])
+            self.capsule[@"Moments"] = [[NSMutableArray alloc]init];
+        [self.capsule[@"Moments"] addObject:moment.objectId];
+        [self.capsule saveInBackground];
+        [self.moments addObject:moment];
+    }];
 }
 
 
