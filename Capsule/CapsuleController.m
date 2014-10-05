@@ -79,16 +79,34 @@
 #pragma Table View Methods
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ImageMomentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ImageMomentCell" forIndexPath:indexPath];
-    if (!cell) {
-        cell = [[ImageMomentCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"ImageMomentCell"];
+    if (!self.moments) {
+        self.moments = [CapsuleStore sharedStore].currentCapsule.moments;
     }
-    return cell;
-
+    id m = self.moments[indexPath.row];
+    if ([m isMemberOfClass:[UIImage class]]) {
+        ImageMomentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ImageMomentCell" forIndexPath:indexPath];
+        if (!cell) {
+            cell = [[ImageMomentCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"ImageMomentCell"];
+        }
+        cell.imageMoment.image = (UIImage *) m;
+        return cell;
+    } else {
+        TextMomentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TextMomentCell" forIndexPath:indexPath];
+        if (!cell) {
+            cell = [[TextMomentCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"TextMomentCell"];
+        }
+        cell.textMomentLabel.text = (NSString *) m;
+        return cell;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    if (!self.moments) {
+        self.moments = [CapsuleStore sharedStore].currentCapsule.moments;
+    }
+    NSLog(@"mommynts %lu", (unsigned long)self.moments.count);
+    
+    return self.moments.count;
 }
 
 @end

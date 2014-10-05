@@ -18,8 +18,9 @@
         _moments = [[NSMutableArray alloc] init];
         if (obj[@"Moments"]) {
             NSArray *arr = obj[@"Moments"];
+            NSLog(@"moments arry %lu", (unsigned long)arr.count);
             for (NSString *s in arr) {
-                PFQuery *query = [PFQuery queryWithClassName:@"Moments"];
+                PFQuery *query = [PFQuery queryWithClassName:@"Moment"];
                 PFObject *m = [query getObjectWithId:s];
                 if ([((NSString *) m[@"Type"]) isEqualToString:@"Text"]) {
                     NSString *txt = [self getText:m];
@@ -110,7 +111,8 @@
             self.capsule[@"Moments"] = [[NSMutableArray alloc]init];
         [self.capsule[@"Moments"] addObject:moment.objectId];
         [self.capsule saveInBackground];
-        [self.moments addObject:moment];
+        UIImage *i = [self getImage:moment];
+        [self.moments addObject:i];
     }];
 }
 
@@ -123,7 +125,8 @@
             self.capsule[@"Moments"] = [[NSMutableArray alloc]init];
         [self.capsule[@"Moments"] addObject:moment.objectId];
         [self.capsule saveInBackground];
-        [self.moments addObject:moment];
+        NSString *s = [self getText:moment];
+        [self.moments addObject:s];
     }];
 }
 

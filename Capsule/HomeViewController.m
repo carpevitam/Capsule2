@@ -92,6 +92,7 @@
 
 #pragma TableView Methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSLog(@"count dracula %lu", (unsigned long)[CapsuleStore sharedStore].capsuleList.count);
     return [CapsuleStore sharedStore].capsuleList.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

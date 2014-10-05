@@ -29,7 +29,24 @@ static CapsuleStore *store;
 {
     self = [super init];
     if (self) {
-        [self refreshData];
+        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+        PFUser *user = [PFUser currentUser];
+        _capsuleList = [[NSMutableArray alloc] init];
+        if (user[@"Capsules"]) {
+            NSLog(@"has capsules");
+            PFQuery *query = [PFQuery queryWithClassName:@"Capsule"];
+            NSString *objId = [PFUser currentUser].objectId;
+            [query whereKey:@"Owner" equalTo:objId];
+            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                for (PFObject *p in objects) {
+                    Capsule *c = [[Capsule alloc] initWithPFObject:p];
+                    NSLog(@"caps %@", c);
+                    [_capsuleList addObject:c];
+                }
+                NSLog(@"capsule length after loading %lu", (unsigned long)_capsuleList.count);
+                [nc postNotificationName:@"LoadedCapsules" object:nil];
+            }];
+        }
     }
     [CapsuleStore permanentList:self];
     return self;
@@ -55,10 +72,12 @@ static CapsuleStore *store;
     PFUser *user = [PFUser currentUser];
     _capsuleList = [[NSMutableArray alloc] init];
     if (user[@"Capsules"]) {
+        NSLog(@"has capsules");
         PFQuery *query = [PFQuery queryWithClassName:@"Capsule"];
         NSString *objId = [PFUser currentUser].objectId;
         [query whereKey:@"Owner" equalTo:objId];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            NSLog(@"objects %@", objects);
             for (PFObject *p in objects) {
                 Capsule *c = [[Capsule alloc] initWithPFObject:p];
                 [_capsuleList addObject:c];

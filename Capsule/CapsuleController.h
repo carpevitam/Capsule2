@@ -15,6 +15,7 @@
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *momentTable;
+@property (strong, nonatomic) NSArray *moments;
 - (IBAction) takePicture;
 - (IBAction) choosePicture;
 
