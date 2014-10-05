@@ -44,7 +44,7 @@
     else {
         //self.modalTransitionStyle =
         ViewController *login = [self.storyboard instantiateViewControllerWithIdentifier:@"logIn"];
-        [self presentViewController:login animated:YES completion:^{ }];
+        [self presentViewController:login animated:YES completion:^{}];
 
     }
     [nc addObserver:self selector:@selector(loadDataAfterCapsulesLoad) name:@"LoadedCapsules" object:nil];
