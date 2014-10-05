@@ -8,6 +8,10 @@
 
 #import <FacebookSDK/FacebookSDK.h>
 
-@interface FriendsListViewController : FBFriendPickerViewController
+@interface FriendsListViewController : FBFriendPickerViewController <FBFriendPickerDelegate, UITextFieldDelegate>
 
+@property (weak, nonatomic) IBOutlet UIButton *createButton;
+- (IBAction)createCapsule:(id)sender;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITextField *capsuleName;
 @end

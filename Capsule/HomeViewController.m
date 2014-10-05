@@ -10,6 +10,8 @@
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import "ViewController.h"
+#import "CapsuleCell.h"
+#import "CapsuleController.h"
 
 @interface HomeViewController ()
 
@@ -21,7 +23,12 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        _capsules = [PFUser currentUser][@"Capsules"];
+        //
+        // TEMP TEMP
+        if (_capsules.count == 0) {
+            _capsules = [[NSMutableArray alloc] initWithArray:@[@"wat"]];
+        }
     }
     return self;
 }
@@ -30,6 +37,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if (_capsules.count == 0) {
+        _capsules = [[NSMutableArray alloc] initWithArray:@[@"wat"]];
+    }
     if ([PFUser currentUser])
         NSLog(@"%@",[PFUser currentUser]);
     else{
@@ -60,15 +70,34 @@
     
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    NSString *segueName = segue.identifier;
+    if ([segueName isEqualToString:@"HomeToCapsule"]) {
+        CapsuleController *dest = (CapsuleController *)[segue destinationViewController];
+        NSInteger index = [self.capsuleTable indexPathForSelectedRow].row;
+        [dest setTitle: self.capsules[index]];
+    }
+
 }
-*/
+
+
+#pragma TableView Methods
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.capsules.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CapsuleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CapsuleCell" forIndexPath:indexPath];
+    if (!cell) {
+        cell = [[CapsuleCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"CapsuleCell"];
+    }
+    cell.captionLabel.text = self.capsules[indexPath.row];
+    return cell;
+}
+
 
 @end

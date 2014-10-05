@@ -7,6 +7,7 @@
 //
 
 #import "FriendsListViewController.h"
+#import <Parse/Parse.h>
 
 @interface FriendsListViewController ()
 
@@ -17,9 +18,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
     return self;
 }
 
@@ -27,7 +25,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSLog(@"isopen: %d ", [[FBSession activeSession] isOpen]);
+    self.delegate = self;
     [self loadData];
+    self.doneButton = nil;
+    self.cancelButton = nil;
+    self.allowsMultipleSelection = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,4 +50,19 @@
 }
 */
 
+- (IBAction)createCapsule:(id)sender {
+    PFObject *capsule = [PFObject objectWithClassName:@"Capsule"];
+    capsule[@"Name"] = self.capsuleName.text;
+    capsule[@"Users"] = self.selection;
+    [capsule saveInBackground];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+#pragma Text Field Methods
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 @end
