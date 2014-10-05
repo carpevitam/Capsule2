@@ -46,6 +46,10 @@
 }
 */
 
+- (IBAction)doneEditing:(id)sender {
+    [self.doneButton resignFirstResponder];
+}
+
 - (IBAction)saveText:(id)sender {
     
 }
@@ -53,7 +57,4 @@
 - (IBAction)cancelText:(id)sender {
 }
 
-- (void)textViewDidEndEditing:(UITextView *)textView {
-    [textView resignFirstResponder];
-}
 @end

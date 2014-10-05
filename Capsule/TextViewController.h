@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface TextViewController : UIViewController <UITextViewDelegate>
+- (IBAction)doneEditing:(id)sender;
 - (IBAction)saveText:(id)sender;
 - (IBAction)cancelText:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
 
 @end
