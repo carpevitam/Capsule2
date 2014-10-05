@@ -22,12 +22,19 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    NSLog(@"SELFSELFSEFL");
     if (self) {
         _capsules = [PFUser currentUser][@"Capsules"];
+        NSLog(@"\nUSER:%@\ncapsules%@",[PFUser currentUser],[PFUser currentUser][@"Capsules"]);
         //
         // TEMP TEMP
         if (_capsules.count == 0) {
-            _capsules = [[NSMutableArray alloc] initWithArray:@[@"wat"]];
+            ;//_capsules = [[NSMutableArray alloc] initWithArray:@[@"wat"]];
+        }
+        for (int i = 0; i < [_capsules count]; i++){
+            NSString *capsuleIds = _capsules[i][@"objectId"];
+            NSLog(@"NSLOGHERE:%@",capsuleIds);
+            
         }
     }
     return self;
@@ -37,11 +44,28 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _capsules = [PFUser currentUser][@"Capsules"];
+    NSLog(@"%d",_capsules.count);
     if (_capsules.count == 0) {
         _capsules = [[NSMutableArray alloc] initWithArray:@[@"wat"]];
     }
+    
+    
+    //NSLog(@"\nUSER:%@\ncapsules%@",[PFUser currentUser],[PFUser currentUser][@"Capsules"]);
+    NSLog(@"%@",_capsules[0]);
+    //
+    // TEMP TEMP
+    for (int i = 0; i < [_capsules count]; i++){
+        NSLog(@"%@",_capsules[i]);
+    }
+
+    _capsules = [[NSMutableArray alloc] initWithArray:@[@"wat"]];
+    
+    
+    
     if ([PFUser currentUser])
-        NSLog(@"%@",[PFUser currentUser]);
+        ;//NSLog(@"%@",[PFUser currentUser]);
     else{
         //self.modalTransitionStyle =
 //UIViewController *login = [[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
@@ -53,7 +77,7 @@
 
     }
     
-        NSLog(@"Login");
+        //NSLog(@"Login");
 }
 
 - (void)didReceiveMemoryWarning
