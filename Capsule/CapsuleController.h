@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CapsuleController : UIViewController
+@interface CapsuleController : UIViewController<UIImagePickerControllerDelegate>{
+    
+    IBOutlet UIImageView *ImageView;
+    UIImagePickerController *picker;
+    UIImage *image;
+}
+
+- (IBAction) takePicture;
+- (IBAction) choosePicture;
 
 @end
