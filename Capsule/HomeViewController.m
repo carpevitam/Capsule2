@@ -18,7 +18,7 @@
 @end
 
 @implementation HomeViewController
-
+//? Needed?
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -51,11 +51,6 @@
         _capsules = [[NSMutableArray alloc] initWithArray:@[@"wat"]];
     }
     
-    
-    //NSLog(@"\nUSER:%@\ncapsules%@",[PFUser currentUser],[PFUser currentUser][@"Capsules"]);
-    NSLog(@"%@",_capsules[0]);
-    //
-    // TEMP TEMP
     for (int i = 0; i < [_capsules count]; i++){
         NSLog(@"%@",_capsules[i]);
     }
@@ -68,16 +63,10 @@
         ;//NSLog(@"%@",[PFUser currentUser]);
     else{
         //self.modalTransitionStyle =
-//UIViewController *login = [[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
-        //ViewController *login = [[ViewController alloc]init];
-        //login.delegate = self;
         ViewController *login = [self.storyboard instantiateViewControllerWithIdentifier:@"logIn"];
         [self presentViewController:login animated:YES completion:^{ }];
-        //ViewController2 *myVC2 = [[ViewController2 alloc] initWithNibName:@"ViewController2" bundle:nil];
 
     }
-    
-        //NSLog(@"Login");
 }
 
 - (void)didReceiveMemoryWarning

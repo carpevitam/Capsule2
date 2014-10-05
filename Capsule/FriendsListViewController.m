@@ -61,7 +61,6 @@
         if (!me[@"Capsules"]){
             me[@"Capsules"] = [[NSMutableArray alloc]init];
         }
-        //[me[@"Capsules"] addObject:capsule];
         [me[@"Capsules"] addObject: capsule.objectId];
         [me saveInBackground];
     }];
