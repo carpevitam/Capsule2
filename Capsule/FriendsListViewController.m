@@ -54,7 +54,17 @@
     PFObject *capsule = [PFObject objectWithClassName:@"Capsule"];
     capsule[@"Name"] = self.capsuleName.text;
     capsule[@"Users"] = self.selection;
+
+    capsule[@"Owner"] = [PFUser currentUser].objectId;
     [capsule saveInBackground];
+    
+    PFUser *me = [PFUser currentUser];
+    if (me[@"Capsules"] == nil){
+        me[@"capsules"] = [[NSMutableArray alloc]init];
+    }
+    [me[@"Capsules"] addObject:capsule];
+    [me saveInBackground];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
