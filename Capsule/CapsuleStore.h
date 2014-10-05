@@ -14,6 +14,7 @@
 @property NSMutableArray *capsuleList;
 @property Capsule *currentCapsule;
 
-- (instancetype)initWithCapsuleListObject:(PFObject*) obj;
+- (instancetype)initWithCurrentUser;
++ (instancetype) sharedStore;
 
 @end

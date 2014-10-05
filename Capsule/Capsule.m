@@ -13,14 +13,29 @@
 - (instancetype) initWithPFObject:(PFObject*) obj {
     self = [super init];
     if (self) {
+        _capsuleName = obj[@"Name"];
         _capsule = obj;
         _moments = [[NSMutableArray alloc] init];
         if (obj[@"Moments"]) {
             NSArray *arr = obj[@"Moments"];
             for (NSString *s in arr) {
                 PFQuery *query = [PFQuery queryWithClassName:@"Moments"];
-                PFObject *o = [query getObjectWithId:s];
-                [_moments addObject:o];
+                PFObject *m = [query getObjectWithId:s];
+                if ([((NSString *) m[@"Type"]) isEqualToString:@"Text"]) {
+                    NSString *txt = [self getText:m];
+                    [_moments addObject:txt];
+                    if (!_text1) {
+                        _text1 = txt;
+                    }
+                } else if ([((NSString *) m[@"Type"]) isEqualToString:@"ImageFile"]) {
+                    UIImage *img = [self getImage:m];
+                    [_moments addObject:img];
+                    if (!_image1) {
+                        _image1 = img;
+                    } else if (!_image2) {
+                        _image2 = img;
+                    }
+                }
             }
         }
         
@@ -31,6 +46,20 @@
         }
     }
     return self;
+}
+
+- (NSString *) getText: (PFObject*) m{
+    return m[@"Text"];
+}
+
+- (UIImage *) getImage: (PFObject*) m {
+    PFFile *theImage = m[@"ImageFile"];
+    UIImage __block *img;
+    [theImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
+        img = [UIImage imageWithData:data];
+    }];
+    return img;
+
 }
 
 /* returns nil if no text */

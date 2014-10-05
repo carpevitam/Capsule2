@@ -11,9 +11,13 @@
 
 @interface Capsule : NSObject
 
+@property NSString *capsuleName;
 @property NSMutableArray *moments;
 @property NSMutableArray *users;
 @property PFObject *capsule;
+@property UIImage *image1;
+@property UIImage *image2;
+@property NSString *text1;
 
 - (instancetype) initWithPFObject:(PFObject*) obj;
 - (NSString *) getFirstText;

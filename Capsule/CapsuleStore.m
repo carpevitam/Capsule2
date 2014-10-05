@@ -11,13 +11,11 @@
 #import "Capsule.h"
 
 @implementation CapsuleStore
+
+static CapsuleStore *store;
+
 + (instancetype) sharedStore {
-    static CapsuleStore *shared;
-    static dispatch_once_t onceToken;
-    dispatch_once (&onceToken, ^{
-        shared = [[self alloc] initPrivate];
-    });
-    return shared;
+    return store;
 }
 
 
@@ -27,25 +25,33 @@
     return nil;
 }
 
-- (instancetype)initWithCapsuleListObject:(PFObject*) obj
+- (instancetype)initWithCurrentUser
 {
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     self = [super init];
     if (self) {
+        PFUser *user = [PFUser currentUser];
         _capsuleList = [[NSMutableArray alloc] init];
-        if (obj[@"Capsules"]) {
+        if (user[@"Capsules"]) {
             PFQuery *query = [PFQuery queryWithClassName:@"Capsule"];
             NSString *objId = [PFUser currentUser].objectId;
-            [query whereKey:@"objectId" equalTo:objId];
+            [query whereKey:@"Owner" equalTo:objId];
             [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                 for (PFObject *p in objects) {
                     Capsule *c = [[Capsule alloc] initWithPFObject:p];
                     [_capsuleList addObject:c];
                 }
+                NSLog(@"capsule length after loading %lu", (unsigned long)_capsuleList.count);
+                [nc postNotificationName:@"LoadedCapsules" object:nil];
             }];
         }
     }
+    [CapsuleStore permanentList:self];
     return self;
-    
+}
+
++ (void) permanentList:(CapsuleStore *) cap {
+    store = cap;
 }
 
 /*

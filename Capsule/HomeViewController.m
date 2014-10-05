@@ -12,6 +12,8 @@
 #import "ViewController.h"
 #import "CapsuleCell.h"
 #import "CapsuleController.h"
+#import "Capsule.h"
+#import "CapsuleStore.h"
 
 @interface HomeViewController ()
 
@@ -22,20 +24,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    NSLog(@"SELFSELFSEFL");
     if (self) {
-        _capsules = [PFUser currentUser][@"Capsules"];
-        NSLog(@"\nUSER:%@\ncapsules%@",[PFUser currentUser],[PFUser currentUser][@"Capsules"]);
-        //
-        // TEMP TEMP
-        if (_capsules.count == 0) {
-            ;//_capsules = [[NSMutableArray alloc] initWithArray:@[@"wat"]];
-        }
-        for (int i = 0; i < [_capsules count]; i++){
-            NSString *capsuleIds = _capsules[i][@"objectId"];
-            NSLog(@"NSLOGHERE:%@",capsuleIds);
-            
-        }
+
     }
     return self;
 }
@@ -44,29 +34,24 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     
-    _capsules = [PFUser currentUser][@"Capsules"];
-    NSLog(@"%d",_capsules.count);
-    if (_capsules.count == 0) {
-        _capsules = [[NSMutableArray alloc] initWithArray:@[@"wat"]];
-    }
-    
-    for (int i = 0; i < [_capsules count]; i++){
-        NSLog(@"%@",_capsules[i]);
-    }
-
-    _capsules = [[NSMutableArray alloc] initWithArray:@[@"wat"]];
-    
-    
+    CapsuleStore *cs = [[CapsuleStore alloc] initWithCurrentUser];
+    NSLog(@"Number of capsules %lu", (unsigned long)cs.capsuleList.count);
     
     if ([PFUser currentUser])
-        ;//NSLog(@"%@",[PFUser currentUser]);
-    else{
+        ;
+    else {
         //self.modalTransitionStyle =
         ViewController *login = [self.storyboard instantiateViewControllerWithIdentifier:@"logIn"];
         [self presentViewController:login animated:YES completion:^{ }];
 
     }
+    [nc addObserver:self selector:@selector(loadDataAfterCapsulesLoad) name:@"LoadedCapsules" object:nil];
+}
+
+- (void) loadDataAfterCapsulesLoad {
+    [self.capsuleTable reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -93,7 +78,11 @@
     if ([segueName isEqualToString:@"HomeToCapsule"]) {
         CapsuleController *dest = (CapsuleController *)[segue destinationViewController];
         NSInteger index = [self.capsuleTable indexPathForSelectedRow].row;
-        [dest setTitle: self.capsules[index]];
+        if (!self.capsuleList) {
+            self.capsuleList = [CapsuleStore sharedStore].capsuleList;
+        }
+        Capsule *c = self.capsuleList[index];
+        [dest setTitle:c.capsuleName];
     }
 
 }
@@ -101,14 +90,26 @@
 
 #pragma TableView Methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.capsules.count;
+    return [CapsuleStore sharedStore].capsuleList.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (!self.capsuleList) {
+        self.capsuleList = [CapsuleStore sharedStore].capsuleList;
+    }
     CapsuleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CapsuleCell" forIndexPath:indexPath];
     if (!cell) {
         cell = [[CapsuleCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"CapsuleCell"];
     }
-    cell.captionLabel.text = self.capsules[indexPath.row];
+    Capsule *curr = self.capsuleList[indexPath.row];
+    cell.captionLabel.text = curr.capsuleName;
+    
+    if (curr.image1) {
+        cell.mainPicture.image = curr.image1;
+    }
+    if (curr.image2) {
+        cell.smallPicture.image = curr.image2;
+    }
+
     return cell;
 }
 

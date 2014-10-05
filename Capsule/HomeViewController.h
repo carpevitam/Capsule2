@@ -10,7 +10,7 @@
 
 @interface HomeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *capsuleTable;
-@property (strong, nonatomic) NSString *currentCapsuleName;
-@property (strong, nonatomic) NSMutableArray *capsules;
+@property (strong, nonatomic) NSMutableArray *capsuleList;
+
 
 @end
