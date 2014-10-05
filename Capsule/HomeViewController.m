@@ -36,6 +36,8 @@
     // Do any additional setup after loading the view.
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     
+
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
     CapsuleStore *cs = [[CapsuleStore alloc] initWithCurrentUser];
     
     if ([PFUser currentUser])

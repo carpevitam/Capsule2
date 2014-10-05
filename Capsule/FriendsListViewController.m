@@ -24,6 +24,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
     // Do any additional setup after loading the view.
     NSLog(@"isopen: %d ", [[FBSession activeSession] isOpen]);
     self.delegate = self;
@@ -31,6 +32,8 @@
     self.doneButton = nil;
     self.cancelButton = nil;
     self.allowsMultipleSelection = YES;
+    
+    [self.createButton setEnabled: NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,5 +79,12 @@
 {
     [textField resignFirstResponder];
     return YES;
+}
+
+- (IBAction)editingChanged:(UITextField *)textField
+{
+    //if text field is empty, disable the button
+    self.createButton.enabled = textField.text.length > 0;
+    
 }
 @end
