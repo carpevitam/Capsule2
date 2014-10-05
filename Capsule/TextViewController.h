@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TextViewController : UIViewController
+@interface TextViewController : UIViewController <UITextViewDelegate>
 - (IBAction)saveText:(id)sender;
 - (IBAction)cancelText:(id)sender;
 

@@ -52,4 +52,8 @@
 
 - (IBAction)cancelText:(id)sender {
 }
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    [textView resignFirstResponder];
+}
 @end

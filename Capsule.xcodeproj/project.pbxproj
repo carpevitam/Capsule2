@@ -39,6 +39,8 @@
 		2079CE2419E092AE0052D8ED /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2079CE2319E092AE0052D8ED /* FacebookSDK.framework */; };
 		2079CE2719E0DAFC0052D8ED /* CapsuleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2079CE2619E0DAFC0052D8ED /* CapsuleController.m */; };
 		2079CE2A19E0EAF00052D8ED /* TextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2079CE2919E0EAF00052D8ED /* TextViewController.m */; };
+		2079CE2D19E0EEB70052D8ED /* CapsuleStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 2079CE2C19E0EEB70052D8ED /* CapsuleStore.m */; };
+		2079CE3019E0F0CC0052D8ED /* Capsule.m in Sources */ = {isa = PBXBuildFile; fileRef = 2079CE2F19E0F0CC0052D8ED /* Capsule.m */; };
 		20E012AF19E06B5F0046E1AA /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E012AE19E06B5F0046E1AA /* HomeViewController.m */; };
 		20E012B219E06BA70046E1AA /* CapsuleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E012B119E06BA70046E1AA /* CapsuleCell.m */; };
 /* End PBXBuildFile section */
@@ -94,6 +96,10 @@
 		2079CE2619E0DAFC0052D8ED /* CapsuleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CapsuleController.m; sourceTree = "<group>"; };
 		2079CE2819E0EAF00052D8ED /* TextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewController.h; sourceTree = "<group>"; };
 		2079CE2919E0EAF00052D8ED /* TextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewController.m; sourceTree = "<group>"; };
+		2079CE2B19E0EEB70052D8ED /* CapsuleStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapsuleStore.h; sourceTree = "<group>"; };
+		2079CE2C19E0EEB70052D8ED /* CapsuleStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CapsuleStore.m; sourceTree = "<group>"; };
+		2079CE2E19E0F0CC0052D8ED /* Capsule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Capsule.h; sourceTree = "<group>"; };
+		2079CE2F19E0F0CC0052D8ED /* Capsule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Capsule.m; sourceTree = "<group>"; };
 		20E012AD19E06B5F0046E1AA /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		20E012AE19E06B5F0046E1AA /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		20E012B019E06BA70046E1AA /* CapsuleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapsuleCell.h; sourceTree = "<group>"; };
@@ -204,6 +210,10 @@
 				2079CE2619E0DAFC0052D8ED /* CapsuleController.m */,
 				2079CE2819E0EAF00052D8ED /* TextViewController.h */,
 				2079CE2919E0EAF00052D8ED /* TextViewController.m */,
+				2079CE2B19E0EEB70052D8ED /* CapsuleStore.h */,
+				2079CE2C19E0EEB70052D8ED /* CapsuleStore.m */,
+				2079CE2E19E0F0CC0052D8ED /* Capsule.h */,
+				2079CE2F19E0F0CC0052D8ED /* Capsule.m */,
 			);
 			path = Capsule;
 			sourceTree = "<group>";
@@ -342,6 +352,8 @@
 				019587E619E05C1300C41438 /* AppDelegate.m in Sources */,
 				019587E219E05C1300C41438 /* main.m in Sources */,
 				20E012AF19E06B5F0046E1AA /* HomeViewController.m in Sources */,
+				2079CE2D19E0EEB70052D8ED /* CapsuleStore.m in Sources */,
+				2079CE3019E0F0CC0052D8ED /* Capsule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
