@@ -27,24 +27,9 @@ static CapsuleStore *store;
 
 - (instancetype)initWithCurrentUser
 {
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     self = [super init];
     if (self) {
-        PFUser *user = [PFUser currentUser];
-        _capsuleList = [[NSMutableArray alloc] init];
-        if (user[@"Capsules"]) {
-            PFQuery *query = [PFQuery queryWithClassName:@"Capsule"];
-            NSString *objId = [PFUser currentUser].objectId;
-            [query whereKey:@"Owner" equalTo:objId];
-            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                for (PFObject *p in objects) {
-                    Capsule *c = [[Capsule alloc] initWithPFObject:p];
-                    [_capsuleList addObject:c];
-                }
-                NSLog(@"capsule length after loading %lu", (unsigned long)_capsuleList.count);
-                [nc postNotificationName:@"LoadedCapsules" object:nil];
-            }];
-        }
+        [self refreshData];
     }
     [CapsuleStore permanentList:self];
     return self;
@@ -63,5 +48,24 @@ static CapsuleStore *store;
         _capsuleList = [[NSMutableArray alloc] init];
     }
     return self;
+}
+
+- (void) refreshData {
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    PFUser *user = [PFUser currentUser];
+    _capsuleList = [[NSMutableArray alloc] init];
+    if (user[@"Capsules"]) {
+        PFQuery *query = [PFQuery queryWithClassName:@"Capsule"];
+        NSString *objId = [PFUser currentUser].objectId;
+        [query whereKey:@"Owner" equalTo:objId];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            for (PFObject *p in objects) {
+                Capsule *c = [[Capsule alloc] initWithPFObject:p];
+                [_capsuleList addObject:c];
+            }
+            NSLog(@"capsule length after loading %lu", (unsigned long)_capsuleList.count);
+            [nc postNotificationName:@"LoadedCapsules" object:nil];
+        }];
+    }
 }
 @end

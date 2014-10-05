@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CapsuleCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *mainPicture;
 @property (weak, nonatomic) IBOutlet UIImageView *smallPicture;
 

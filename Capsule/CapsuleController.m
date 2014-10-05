@@ -9,6 +9,8 @@
 #import "CapsuleController.h"
 #import "Capsule.h"
 #import "CapsuleStore.h"
+#import "ImageMomentCell.h"
+#import "TextMomentCell.h"
 
 @interface CapsuleController ()
 
@@ -57,7 +59,6 @@
     Capsule *capsuleInstance = [CapsuleStore sharedStore].currentCapsule;
     image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     [capsuleInstance saveImage:image];
-    [ImageView setImage:image];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
@@ -74,5 +75,20 @@
  // Pass the selected object to the new view controller.
  }
  */
+
+#pragma Table View Methods
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ImageMomentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ImageMomentCell" forIndexPath:indexPath];
+    if (!cell) {
+        cell = [[ImageMomentCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"ImageMomentCell"];
+    }
+    return cell;
+
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
 
 @end

@@ -93,20 +93,15 @@
 - (void)saveImage:(UIImage *)img {
     PFObject *moment = [PFObject objectWithClassName:@"Moment"];
     moment[@"Type"] = @"ImageFile";
-    NSLog(@"moment %@", moment);
     
     if (!img) {
         return;
     }
-    NSLog(@"waaaaaaaaaat");
     NSData *imageData = UIImageJPEGRepresentation(img, 0.05f);
     PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:imageData];
-    NSLog(@"imageFaile %@", imageFile);
     
     // Save PFFile
-    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        NSLog(@"booliano %d", succeeded);
-    }];
+    [imageFile saveInBackground];
     [moment setObject:imageFile forKey:@"ImageFile"];
     
     [moment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

@@ -10,6 +10,7 @@
 
 @interface TextViewController : UIViewController <UITextViewDelegate>
 - (IBAction)doneEditing:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 - (IBAction)saveText:(id)sender;
 - (IBAction)cancelText:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;

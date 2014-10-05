@@ -16,5 +16,6 @@
 
 - (instancetype)initWithCurrentUser;
 + (instancetype) sharedStore;
+- (void) refreshData;
 
 @end

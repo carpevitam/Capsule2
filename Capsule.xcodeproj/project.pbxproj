@@ -41,6 +41,8 @@
 		2079CE2A19E0EAF00052D8ED /* TextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2079CE2919E0EAF00052D8ED /* TextViewController.m */; };
 		2079CE2D19E0EEB70052D8ED /* CapsuleStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 2079CE2C19E0EEB70052D8ED /* CapsuleStore.m */; };
 		2079CE3019E0F0CC0052D8ED /* Capsule.m in Sources */ = {isa = PBXBuildFile; fileRef = 2079CE2F19E0F0CC0052D8ED /* Capsule.m */; };
+		2079CE3319E130AB0052D8ED /* ImageMomentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2079CE3219E130AB0052D8ED /* ImageMomentCell.m */; };
+		2079CE3619E130C60052D8ED /* TextMomentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2079CE3519E130C60052D8ED /* TextMomentCell.m */; };
 		20E012AF19E06B5F0046E1AA /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E012AE19E06B5F0046E1AA /* HomeViewController.m */; };
 		20E012B219E06BA70046E1AA /* CapsuleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20E012B119E06BA70046E1AA /* CapsuleCell.m */; };
 /* End PBXBuildFile section */
@@ -100,6 +102,10 @@
 		2079CE2C19E0EEB70052D8ED /* CapsuleStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CapsuleStore.m; sourceTree = "<group>"; };
 		2079CE2E19E0F0CC0052D8ED /* Capsule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Capsule.h; sourceTree = "<group>"; };
 		2079CE2F19E0F0CC0052D8ED /* Capsule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Capsule.m; sourceTree = "<group>"; };
+		2079CE3119E130AA0052D8ED /* ImageMomentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageMomentCell.h; sourceTree = "<group>"; };
+		2079CE3219E130AB0052D8ED /* ImageMomentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageMomentCell.m; sourceTree = "<group>"; };
+		2079CE3419E130C60052D8ED /* TextMomentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextMomentCell.h; sourceTree = "<group>"; };
+		2079CE3519E130C60052D8ED /* TextMomentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextMomentCell.m; sourceTree = "<group>"; };
 		20E012AD19E06B5F0046E1AA /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		20E012AE19E06B5F0046E1AA /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		20E012B019E06BA70046E1AA /* CapsuleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapsuleCell.h; sourceTree = "<group>"; };
@@ -214,6 +220,10 @@
 				2079CE2C19E0EEB70052D8ED /* CapsuleStore.m */,
 				2079CE2E19E0F0CC0052D8ED /* Capsule.h */,
 				2079CE2F19E0F0CC0052D8ED /* Capsule.m */,
+				2079CE3119E130AA0052D8ED /* ImageMomentCell.h */,
+				2079CE3219E130AB0052D8ED /* ImageMomentCell.m */,
+				2079CE3419E130C60052D8ED /* TextMomentCell.h */,
+				2079CE3519E130C60052D8ED /* TextMomentCell.m */,
 			);
 			path = Capsule;
 			sourceTree = "<group>";
@@ -344,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2079CE3619E130C60052D8ED /* TextMomentCell.m in Sources */,
 				01FF4DCE19E0B20A00CF48CD /* FriendsListViewController.m in Sources */,
 				2079CE2719E0DAFC0052D8ED /* CapsuleController.m in Sources */,
 				20E012B219E06BA70046E1AA /* CapsuleCell.m in Sources */,
@@ -351,6 +362,7 @@
 				019587EC19E05C1300C41438 /* ViewController.m in Sources */,
 				019587E619E05C1300C41438 /* AppDelegate.m in Sources */,
 				019587E219E05C1300C41438 /* main.m in Sources */,
+				2079CE3319E130AB0052D8ED /* ImageMomentCell.m in Sources */,
 				20E012AF19E06B5F0046E1AA /* HomeViewController.m in Sources */,
 				2079CE2D19E0EEB70052D8ED /* CapsuleStore.m in Sources */,
 				2079CE3019E0F0CC0052D8ED /* Capsule.m in Sources */,

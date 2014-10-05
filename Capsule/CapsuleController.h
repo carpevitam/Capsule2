@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CapsuleController : UIViewController<UIImagePickerControllerDelegate>{
+@interface CapsuleController : UIViewController <UIImagePickerControllerDelegate, UITableViewDataSource, UITableViewDelegate>{
     
-    IBOutlet UIImageView *ImageView;
     UIImagePickerController *picker;
     UIImage *image;
 }
 
+@property (weak, nonatomic) IBOutlet UITableView *momentTable;
 - (IBAction) takePicture;
 - (IBAction) choosePicture;
 

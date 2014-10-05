@@ -37,7 +37,6 @@
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     
     CapsuleStore *cs = [[CapsuleStore alloc] initWithCurrentUser];
-    NSLog(@"Number of capsules %lu", (unsigned long)cs.capsuleList.count);
     
     if ([PFUser currentUser])
         ;
@@ -102,13 +101,16 @@
         cell = [[CapsuleCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"CapsuleCell"];
     }
     Capsule *curr = self.capsuleList[indexPath.row];
-    cell.captionLabel.text = curr.capsuleName;
+    cell.titleLabel.text = curr.capsuleName;
     
     if (curr.image1) {
         cell.mainPicture.image = curr.image1;
     }
     if (curr.image2) {
         cell.smallPicture.image = curr.image2;
+    }
+    if (curr.text1) {
+        cell.captionLabel.text = curr.text1;
     }
 
     return cell;

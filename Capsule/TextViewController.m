@@ -7,6 +7,8 @@
 //
 
 #import "TextViewController.h"
+#import "Capsule.h"
+#import "CapsuleStore.h"
 
 @interface TextViewController ()
 
@@ -47,14 +49,18 @@
 */
 
 - (IBAction)doneEditing:(id)sender {
-    [self.doneButton resignFirstResponder];
+    [self.textView resignFirstResponder];
 }
 
 - (IBAction)saveText:(id)sender {
+    NSString *txt = self.textView.text;
+    [[CapsuleStore sharedStore].currentCapsule saveText:txt];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 
 - (IBAction)cancelText:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
